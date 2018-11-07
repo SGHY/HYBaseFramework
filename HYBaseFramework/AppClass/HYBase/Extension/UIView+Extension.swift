@@ -211,4 +211,15 @@ extension UIView{
         
         return nil
     }
+    
+    //添加渐变颜色
+    func addGradientColor(fromColor:UIColor,toColor:UIColor) -> Void {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.bounds
+        gradientLayer.colors = [fromColor.cgColor,toColor.cgColor]
+        gradientLayer.startPoint = CGPoint.init(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint.init(x: 1, y: 1)
+        gradientLayer.locations = [0,1]
+        self.layer.insertSublayer(gradientLayer, at: 0)
+    }
 }
